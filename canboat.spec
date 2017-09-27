@@ -1,4 +1,4 @@
-%global commit 870a9231cd451b24d876097166e95ab4a55122ce
+%global commit 4518d287a2397448ae636e5aa4fccacc58ee7616
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global owner canboat
 %global project canboat
