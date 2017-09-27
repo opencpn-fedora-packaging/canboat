@@ -1,9 +1,14 @@
-Name: canboat
+%global commit 870a9231cd451b24d876097166e95ab4a55122ce
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
+%global owner canboat
+%global project canboat
+
+Name: %{project}
 Summary: NMEA 2000 and NMEA 0183 utilities
 Version: 0.0
-Release: 0.1%{?dist}
+Release: 0.1.%{shortcommit}%{?dist}
 License: GPLv3+
-Source: https://github.com/canboat/canboat/archive/master.zip
+Source: https://github.com/%{owner}/%{project}/archive/%{commit}/%{project}-%{shortcommit}.tar.gz
 
 BuildRequires: libxslt
 
@@ -32,7 +37,7 @@ This code uses reverse engineered knowledge to access the NGT-1
 directly. It does not use the Actisense DLL or SDK.
 
 %prep
-%setup0 -n canboat-master
+%autosetup -n %{project}-%{commit}
 sed -i -e 's/-g $(ROOT_GID) -o $(ROOT_UID) -m $(ROOT_MOD)//' Makefile
 
 %build
